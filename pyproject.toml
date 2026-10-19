@@ -1,0 +1,81 @@
+[project]
+name = "yamlx"
+version = "0.1.0"
+description = "Library for MLX inference on multimodal models"
+readme = {file = "README.rst", content-type = "text/x-rst"}
+authors = [
+    { name = "iantsysog", email = "264805063+iantsysog@users.noreply.github.com" }
+]
+requires-python = ">=3.15"
+license = "AGPL-3.0-or-later"
+license-files = ["COPYING"]
+dependencies = [
+    "mlx>=0.32.4",
+    "numpy>=2.5",
+    "regex>=2026.9.29",
+    "soundfile>=0.14",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.15",
+    "Typing :: Typed",
+]
+
+[project.scripts]
+yamlx = "yamlx.app.cmd:main"
+
+[project.optional-dependencies]
+eval = []
+av = ["av>=19"]
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.1",
+    "ty>=0.0.89",
+    "types-regex>=2026.9.29.20261017",
+    "av>=19",
+]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[tool.ruff]
+preview = true
+target-version = "py315"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D",
+    "line-too-long",
+    "missing-trailing-comma",
+    "missing-copyright-notice",
+    "raise-vanilla-args",
+    "raw-string-in-exception",
+    "f-string-in-exception",
+    "docstring-missing-returns",
+    "docstring-missing-yields",
+    "docstring-missing-exception",
+    "docstring-extraneous-exception",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"src/yamlx/common/scope.py" = ["blind-except", "private-member-access"]
+"src/yamlx/common/audio.py" = ["import-outside-top-level", "too-many-statements-in-try-clause"]
+"src/yamlx/speech/asr/qwen3/runtime/load.py" = ["too-many-arguments"]
+"src/yamlx/common/generation.py" = ["too-many-arguments"]
+"src/yamlx/speech/asr/qwen3/runtime/transcribe.py" = ["too-many-arguments", "too-many-locals"]
+"src/yamlx/speech/asr/qwen3/runtime/session.py" = ["too-many-arguments"]
+"src/yamlx/speech/asr/qwen3/runtime/streaming.py" = ["blind-except", "complex-structure", "boolean-type-hint-positional-argument", "too-many-arguments", "too-many-locals", "too-many-positional-arguments", "too-many-statements-in-try-clause", "private-member-access"]
+"src/yamlx/app/sinks.py" = ["ambiguous-unicode-character-string"]
+"src/yamlx/app/cmd.py" = ["blind-except", "too-many-arguments", "print"]
+"src/yamlx/__init__.py" = ["non-empty-init-module"]
+"src/yamlx/speech/asr/qwen3/__init__.py" = ["non-empty-init-module"]
+
+[tool.ty.environment]
+python-version = "3.15"

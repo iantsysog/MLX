@@ -1,0 +1,28 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    target-branch: "main"
+    schedule:
+      interval: "daily"
+      time: "04:00"
+      timezone: "UTC"
+    labels:
+      - "dependencies"
+    open-pull-requests-limit: 3
+    rebase-strategy: "auto"
+    commit-message:
+      prefix: "deps(python)"
+  - package-ecosystem: "uv"
+    directory: "/"
+    target-branch: "main"
+    schedule:
+      interval: "daily"
+      time: "04:00"
+      timezone: "UTC"
+    labels:
+      - "dependencies"
+    open-pull-requests-limit: 3
+    rebase-strategy: "auto"
+    commit-message:
+      prefix: "deps(uv)"
