@@ -11,7 +11,7 @@ license = "AGPL-3.0-or-later"
 license-files = ["COPYING"]
 dependencies = [
     "mlx>=0.32.4",
-    "numpy>=2.5",
+    "numpy>=2.5.4",
     "regex>=2026.9.29",
     "soundfile>=0.14",
 ]
