@@ -27,7 +27,7 @@ yamlx = "yamlx.app.cmd:main"
 
 [project.optional-dependencies]
 eval = []
-av = ["av>=19"]
+av = ["av>=19.0.2"]
 
 [build-system]
 requires = ["uv_build>=0.13.1,<0.14.0"]
@@ -38,7 +38,7 @@ dev = [
     "ruff>=0.17.1",
     "ty>=0.0.89",
     "types-regex>=2026.9.29.20261017",
-    "av>=19",
+    "av>=19.0.2",
 ]
 
 [tool.uv]
