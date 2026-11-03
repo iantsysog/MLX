@@ -35,7 +35,7 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "ruff>=0.17.1",
+    "ruff>=0.17.3",
     "ty>=0.0.89",
     "types-regex>=2026.9.29.20261017",
     "av>=19",
